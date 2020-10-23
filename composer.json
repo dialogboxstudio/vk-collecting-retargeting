@@ -1,0 +1,26 @@
+{
+  "name": "dialogboxstudio/vk-collecting-retargeting",
+  "description": "Бот для полуавтоматического сбора аудитории ретаргетинга",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Victor Vinogradov",
+      "email": "victor.dialogbox@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "DialogBoxStudio\\VkCollectingRetargeting\\": "src/"
+    }
+  },
+  "require": {
+    "php": "7.4.*",
+    "vlucas/phpdotenv": "4.*.*",
+    "monolog/monolog": "2.*.*",
+    "google/apiclient": "2.*",
+    "digitalstars/simplevk": "2.*.*",
+    "ext-json": "*"
+  }
+}
