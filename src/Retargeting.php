@@ -84,7 +84,7 @@ class Retargeting
 
     private function isForwardMessage(): bool
     {
-        if (isset($this->data->object->message->fwd_messages) and count($this->data->object->message->fwd_messages) !== 0) {
+        if (isset($this->data->object->fwd_messages) and count($this->data->object->fwd_messages) !== 0) {
             return true;
         } else {
             return false;
@@ -94,7 +94,7 @@ class Retargeting
     public function getId(): array
     {
         $array_id = [];
-        foreach ($this->data->object->message->fwd_messages as $item => $value) {
+        foreach ($this->data->object->fwd_messages as $item => $value) {
             $base = $this->loadingBase();
             if ($value->from_id !== $this->user_id and $value->from_id > 0 and in_array($value->from_id, $base) == false) {
                 $array_id[] = ['id' => $value->from_id];
