@@ -24,8 +24,7 @@ try {
 $data = $vk->initVars($id, $message, $payload, $user_id, $type);
 
 $client = new Google_Client([
-    'application_name' => $_ENV['GOOGLE_NAME_APPLICATION'],
-    'credentials' => __DIR__.'/config/vk-collecting-retargeting-658570e5cdd8.json',
+    'credentials' => __DIR__.'/config/google.json',
     'scopes' => 'https://www.googleapis.com/auth/spreadsheets'
 ]);
 $service = new Google_Service_Sheets($client);
