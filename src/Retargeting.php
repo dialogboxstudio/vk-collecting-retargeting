@@ -69,7 +69,9 @@ class Retargeting
         }
         
         if ($this->isForwardMessage() === false) {
-            $text.= $this->getError($this->user_id, 4);
+            if ($this->comment !== '!clear') {
+                $text .= $this->getError($this->user_id, 4);
+            }
         }
         
         return ['text' => $text, 'params' => $params, 'count' => $this->countBase()];
