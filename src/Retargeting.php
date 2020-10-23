@@ -70,7 +70,10 @@ class Retargeting
         
         if ($this->isForwardMessage() === false) {
             if ($this->comment !== '!clear') {
-                $text .= $this->getError($this->user_id, 4);
+                $text[] = $this->getError($this->user_id, 4);
+            } else {
+                $text[] = 'База ретаргетинга успешно очищена. Обратите внимание, что данные в Google таблице не удалены, но будут перезаписываться с первой строки. ';
+                $this->clearBase();
             }
         }
         
@@ -136,6 +139,11 @@ class Retargeting
     private function countBase(): int
     {
         return count($this->loadingBase());
+    }
+
+    private function clearBase(): void
+    {
+        $this->saveBase([]);
     }
 
     private function getUsersInfo(int $from_id): array
