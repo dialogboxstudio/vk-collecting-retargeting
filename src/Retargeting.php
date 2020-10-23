@@ -7,6 +7,8 @@ class Retargeting
 {
     private string $path_base = __DIR__ . '/../resource/base.json';
 
+    private string $path_base_txt = __DIR__.'../retargeting.txt';
+
     private array $error = [
         0 => 'Нет ошибок.',
         1 => 'Нельзя добавить самого себя.',
@@ -134,6 +136,7 @@ class Retargeting
     private function saveBase(array $base): void
     {
         file_put_contents($this->path_base, json_encode($base));
+        $this->saveBaseTxt($base);
     }
 
     private function countBase(): int
@@ -144,6 +147,11 @@ class Retargeting
     private function clearBase(): void
     {
         $this->saveBase([]);
+    }
+
+    private function saveBaseTxt(array $base)
+    {
+        file_put_contents($this->path_base_txt, implode("\n", $base));
     }
 
     private function getUsersInfo(int $from_id): array
