@@ -5,11 +5,11 @@ namespace DialogBoxStudio\VkCollectingRetargeting;
 
 class Retargeting
 {
-    private string $path_base = __DIR__ . '/../resource/base.json';
+    private $path_base = __DIR__ . '/../resource/base.json';
 
-    private string $path_base_txt = __DIR__.'../retargeting.txt';
+    private $path_base_txt = __DIR__.'../retargeting.txt';
 
-    private array $error = [
+    private $error = [
         0 => 'Нет ошибок.',
         1 => 'Нельзя добавить самого себя.',
         2 => 'Сообщение относиться к сообществу.',
@@ -17,13 +17,13 @@ class Retargeting
         4 => 'Нет пересланного сообщения.'
     ];
 
-    private int $user_id;
+    private $user_id;
 
-    private object $data;
+    private $data;
     
-    private object $vk;
+    private $vk;
 
-    private string $comment;
+    private  $comment;
 
     public function __construct(int $user_id, object $data, object $vk, string $comment = 'Без комментария')
     {
